@@ -1,0 +1,30 @@
+http://localhost:8888/notebooks/Mypythonpro.ipynb    link of online jupyter notebook
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+import warnings
+warnings.filterwarnings('ignore')
+ipl=pd.read_csv('C:/HTML6024/mypython.csv')
+ipl.head()
+ipl.shape
+ipl.info()
+ipl.columns
+ipl.isnull().sum()
+ipl[ipl['SalaryBonus'].isnull()]
+ipl.shape
+ipl['Industry'].unique()
+ipl.nunique()
+ipl.count()
+ipl['SalaryBonus'].value_counts()
+types=ipl['Industry'].value_counts()
+types.reset_index()
+
+ipl.pie(types.values,labels=types.Industry)
+plt.title('Job Role Distribution')
+plt.legend()
+plt.show()
+ipl.groupby('Industry')['SalaryBonus'].count().plot(kind='bar',title='YearWiseEnrollment')
+
